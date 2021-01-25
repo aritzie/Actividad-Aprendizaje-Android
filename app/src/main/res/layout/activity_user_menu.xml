@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:text="Buscar:" />
+
+        <EditText
+            android:id="@+id/edtSearchName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver productos de:"
+            android:textSize="25dp"/>
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipMen"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Hombre"
+            android:textAlignment="center"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipWomen"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Mujer"
+            android:textAlignment="center"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipJunior"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Junior"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnBestProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VER LOS PRODUCTOS MEJOR VALORADOS" />
+
+    <Button
+        android:id="@+id/btnBestUsers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VER LSO USUARIOS CON MÁS VENTAS" />
+
+    <Button
+        android:id="@+id/btnUserProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MIS PRODUCTOS" />
+
+    <Button
+        android:id="@+id/btnToAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AÑADIR PRODUCTO" />
+</LinearLayout>

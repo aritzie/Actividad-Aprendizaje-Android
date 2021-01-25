@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.svalero.vintedandroid">
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.VintedAndroid"
+        android:usesCleartextTraffic="true">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".list_products.view.ListProductsActivity">
+        </activity>
+        <activity android:name=".list_users.view.ListUsersActivity">
+        </activity>
+        <activity android:name=".list_products_by_category.view.ListProductsByCategoryActivity">
+        </activity>
+        <activity android:name=".list_products_by_name.view.ListProductsByNameActivity">
+        </activity>
+        <activity android:name=".showProduct.view.ShowProductActivity">
+        </activity>
+        <activity android:name=".login_user.view.LoginUserActivity">
+        </activity>
+        <activity android:name=".list_products_by_user.view.ListProductsByUserActivity">
+        </activity>
+        <activity android:name=".UserMenuActivity">
+        </activity>
+        <activity android:name=".add_product.view.AddProductActivity">
+        </activity>
+    </application>
+
+</manifest>
