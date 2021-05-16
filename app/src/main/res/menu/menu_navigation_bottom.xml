@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_nav_1"
+        android:enabled="true"
+        android:icon="@drawable/ic_init"
+        android:title="Inicio" />
+    <item
+        android:id="@+id/menu_nav_2"
+        android:enabled="true"
+        android:icon="@drawable/ic_search"
+        android:title="Buscar"/>
+    <item
+        android:id="@+id/menu_nav_3"
+        android:enabled="true"
+        android:icon="@drawable/ic_add"
+        android:title="Vender"/>
+    <item
+        android:id="@+id/menu_nav_4"
+        android:enabled="true"
+        android:icon="@drawable/ic_profile"
+        android:title="Perfil"/>
+</menu>

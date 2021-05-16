@@ -1,58 +1,44 @@
 package com.svalero.vintedandroid.showProduct.model;
 
-import android.os.AsyncTask;
+import android.content.Context;
 
 import com.svalero.vintedandroid.beans.Product;
+import com.svalero.vintedandroid.retrofit.ApiClient;
 import com.svalero.vintedandroid.showProduct.contract.ShowProductContract;
-import com.svalero.vintedandroid.utils.Post;
-
-import org.json.JSONArray;
 
 import java.util.HashMap;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ShowProductModel implements ShowProductContract.Model {
 
-    private static String URL = "http://192.168.1.29:8084/Vinted/Controller";
-    private Product product;
-    private OnShowProductListener onShowProductListener;
     //http://192.168.1.29:8084/Vinted/Controller
     // ?ACTION=PRODUCT.FIND_BY_ID
     // &ID_PRODUCT=1"
+
     @Override
-    public void getProductWS(OnShowProductListener onShowProductListener, Product product) {
-        this.onShowProductListener = onShowProductListener;
+    public void getProductWS(Context context, OnShowProductListener onShowProductListener, Product product) {
+        ApiClient apiClient = new ApiClient(context);
         HashMap<String,String> params = new HashMap<>();
         params.put("ACTION", "PRODUCT.FIND_BY_ID");
         params.put("ID_PRODUCT", String.valueOf(product.getId()));
-        GetProductFromAPI getProductFromAPI = new GetProductFromAPI(params);
-        getProductFromAPI.execute();
-    }
+        final Call<List<Product>> batch = apiClient.getProduct(params);
 
-    class GetProductFromAPI extends AsyncTask<String, Integer, Boolean> {
-
-        private HashMap<String, String> params;
-
-        public GetProductFromAPI(HashMap<String, String> params) {
-            this.params = params;
-        }
-
-        @Override
-        protected Boolean doInBackground(String... strings) {
-            Post post = new Post();
-
-            JSONArray productJson = post.getServerDataPost(params, URL);
-            product = Product.getProductFromJSON(productJson);
-
-            return true;
-        }
-
-        @Override
-        protected void onPostExecute(Boolean resp) {
-            if(resp) {
-                onShowProductListener.onResolve(product);
-            }else{
-                onShowProductListener.onReject("Error al traer los datos del servidor");
+        batch.enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if(response != null &&  response.body() != null){
+                    onShowProductListener.onResolve(response.body().get(0));
+                }
             }
-        }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                onShowProductListener.onReject(t.getLocalizedMessage());
+            }
+        });
     }
 }

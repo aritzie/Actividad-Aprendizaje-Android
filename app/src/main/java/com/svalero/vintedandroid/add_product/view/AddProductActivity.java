@@ -2,35 +2,36 @@ package com.svalero.vintedandroid.add_product.view;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.svalero.vintedandroid.R;
 import com.svalero.vintedandroid.add_product.contract.AddProductContract;
 import com.svalero.vintedandroid.add_product.presenter.AddProductPresenter;
 import com.svalero.vintedandroid.beans.Product;
+import com.svalero.vintedandroid.beans.User;
 
-import static com.svalero.vintedandroid.UserMenuActivity.USER_ID;
+import static com.svalero.vintedandroid.UserMenuActivity.USER;
 
 
 public class AddProductActivity extends AppCompatActivity implements AddProductContract.View {
 
-    public EditText edtProductName;
-    public EditText edtPrice;
-    public EditText edtDescription;
-    public Spinner spnCategories;
+    public TextInputEditText edtProductName;
+    public TextInputEditText edtPrice;
+    public TextInputEditText edtDescription;
+    public AutoCompleteTextView actvCategories;
     public Button btnAdd;
 
     private String productName;
     private double price;
     private String description;
     private int categoryId;
-    private int userId;
+    private User user;
+    private String selection;
 
     private AddProductPresenter addProductPresenter;
 
@@ -38,19 +39,25 @@ public class AddProductActivity extends AppCompatActivity implements AddProductC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_product);
+        overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
 
         initComponents();
-
-        createSpinner();
+        createDropDownMenu();
 
         Bundle bundle = getIntent().getExtras();
-        userId = bundle.getInt(USER_ID);
+        user = (User) bundle.getSerializable(USER);
 
         btnAdd.setOnClickListener(v -> {
             addProductPresenter = new AddProductPresenter(this);
-            addProductPresenter.addProduct(mountProductToAdd());
+            addProductPresenter.addProduct(this, mountProductToAdd());
         });
 
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(0, R.anim.slide_down);
     }
 
     @Override
@@ -67,7 +74,6 @@ public class AddProductActivity extends AppCompatActivity implements AddProductC
         productName = edtProductName.getText().toString();
         price = Double.parseDouble(edtPrice.getText().toString());
         description = edtDescription.getText().toString();
-        String selection = spnCategories.getSelectedItem().toString();
         switch (selection){
             case "Hombre":
                 categoryId = 1;
@@ -83,23 +89,30 @@ public class AddProductActivity extends AppCompatActivity implements AddProductC
         product.setName(productName);
         product.setPrice(price);
         product.setDescription(description);
-        product.setIdUser(userId);
+        product.setIdUser(user.getId());
         product.setIdCategory(categoryId);
 
         return product;
     }
 
+    private void createDropDownMenu(){
+        String[] categories = {"Hombre", "Mujer", "Junior"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, categories);
+        actvCategories.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        actvCategories.setThreshold(1);
+        actvCategories.setOnItemClickListener((parent, view, position, id)->{
+            String itemSelected = categories[position];
+            selection = itemSelected;
+        });
+    }
+
     private void initComponents() {
-        edtProductName = findViewById(R.id.edtProductName);
-        edtPrice = findViewById(R.id.edtPrice);
-        edtDescription = findViewById(R.id.edtDescription);
-        spnCategories = findViewById(R.id.spnCategories);
+        edtProductName = findViewById(R.id.activity_addProduct_tv_name);
+        edtPrice = findViewById(R.id.activity_addProduct_tv_price);
+        edtDescription = findViewById(R.id.activity_addProduct_tv_description);
+        actvCategories = findViewById(R.id.activity_addProduct_actv_category);
         btnAdd = findViewById(R.id.btnAdd);
     }
 
-    private void createSpinner(){
-        String[] categories = {"Hombre", "Mujer", "Junior"};
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, categories);
-        spnCategories.setAdapter(arrayAdapter);
-    }
 }

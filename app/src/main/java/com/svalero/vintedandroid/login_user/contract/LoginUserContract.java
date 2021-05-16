@@ -1,5 +1,7 @@
 package com.svalero.vintedandroid.login_user.contract;
 
+import android.content.Context;
+
 import com.svalero.vintedandroid.beans.User;
 
 public interface LoginUserContract {
@@ -8,10 +10,10 @@ public interface LoginUserContract {
         void failureLogin(String message);
     }
     interface Presenter {
-        void getUser(User user);
+        void getUser(Context context, User user);
     }
     interface Model {
-        void getUserWS(OnLoginUserListener onLoginUserListener, User user);
+        void getUserWS(Context context, OnLoginUserListener onLoginUserListener, User user);
 
         interface OnLoginUserListener {
             void onFinished(User user);

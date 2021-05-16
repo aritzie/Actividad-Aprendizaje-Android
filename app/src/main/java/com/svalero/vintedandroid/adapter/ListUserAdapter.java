@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.svalero.vintedandroid.R;
 import com.svalero.vintedandroid.beans.User;
 
@@ -51,7 +53,7 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.UserVi
 
         holder.userName.setText(user.getName());
         holder.lastName.setText((user.getLastName()));
-        holder.numberSales.setText(String.valueOf(user.getNumberSales()));
+        holder.numberSales.setText(String.valueOf(user.getNumberSales()));;
     }
 
     @Override

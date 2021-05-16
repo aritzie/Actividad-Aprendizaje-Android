@@ -1,5 +1,7 @@
 package com.svalero.vintedandroid.showProduct.presenter;
 
+import android.content.Context;
+
 import com.svalero.vintedandroid.beans.Product;
 import com.svalero.vintedandroid.showProduct.contract.ShowProductContract;
 import com.svalero.vintedandroid.showProduct.model.ShowProductModel;
@@ -15,8 +17,8 @@ public class ShowProductPresenter implements ShowProductContract.Presenter {
     }
 
     @Override
-    public void getProduct(Product product) {
-        showProductModel.getProductWS(new ShowProductContract.Model.OnShowProductListener() {
+    public void getProduct(Context context, Product product) {
+        showProductModel.getProductWS(context, new ShowProductContract.Model.OnShowProductListener() {
             @Override
             public void onResolve(Product product) {
                 view.succes(product);

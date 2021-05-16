@@ -1,5 +1,7 @@
 package com.svalero.vintedandroid.list_users.contract;
 
+import android.content.Context;
+
 import com.svalero.vintedandroid.beans.User;
 import com.svalero.vintedandroid.list_products.contract.ListProductsContract;
 
@@ -12,11 +14,11 @@ public interface ListUsersContract {
     }
 
     interface Presenter {
-        void getUsers();
+        void getUsers(Context context);
     }
 
     interface Model {
-        void getUsersWS(OnListUsersListener onListUsersListener);
+        void getUsersWS(Context context, OnListUsersListener onListUsersListener);
 
         interface OnListUsersListener {
             void onResolve(ArrayList<User> users);

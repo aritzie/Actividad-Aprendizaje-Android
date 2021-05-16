@@ -1,5 +1,7 @@
 package com.svalero.vintedandroid.list_products.contract;
 
+import android.content.Context;
+
 import com.svalero.vintedandroid.beans.Product;
 
 import java.util.ArrayList;
@@ -11,11 +13,11 @@ public interface ListProductsContract {
     }
 
     interface Presenter {
-        void getProducts();
+        void getProducts(Context context);
     }
 
     interface Model {
-        void getProductsWS(OnListProductsListener onListProductsListener);
+        void getProductsWS(Context context, OnListProductsListener onListProductsListener);
 
         interface OnListProductsListener {
             void onResolve(ArrayList<Product> products);

@@ -12,6 +12,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_vinted_seeklogo_com" />
+        app:srcCompat="@drawable/ic_vinted_seeklogo_com"
+        android:padding="15dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

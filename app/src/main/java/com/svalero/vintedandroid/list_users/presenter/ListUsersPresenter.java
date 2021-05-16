@@ -1,5 +1,7 @@
 package com.svalero.vintedandroid.list_users.presenter;
 
+import android.content.Context;
+
 import com.svalero.vintedandroid.beans.User;
 import com.svalero.vintedandroid.list_users.contract.ListUsersContract;
 import com.svalero.vintedandroid.list_users.model.ListUsersModel;
@@ -17,9 +19,9 @@ public class ListUsersPresenter implements ListUsersContract.Presenter {
     }
 
     @Override
-    public void getUsers() {
+    public void getUsers(Context context) {
 
-        listUsersModel.getUsersWS(new ListUsersContract.Model.OnListUsersListener() {
+        listUsersModel.getUsersWS(context, new ListUsersContract.Model.OnListUsersListener() {
             @Override
             public void onResolve(ArrayList<User> users) {
                 view.success(users);

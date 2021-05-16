@@ -1,5 +1,7 @@
 package com.svalero.vintedandroid.list_products_by_name.presenter;
 
+import android.content.Context;
+
 import com.svalero.vintedandroid.beans.Product;
 import com.svalero.vintedandroid.list_products_by_name.contract.ListProductsByNameContract;
 import com.svalero.vintedandroid.list_products_by_name.model.ListProductsByNameModel;
@@ -17,8 +19,8 @@ public class ListProductsByNamePresenter implements ListProductsByNameContract.P
     }
 
     @Override
-    public void getProducts(Product product) {
-        listProductsByNameModel.getProductsWS(new ListProductsByNameContract.Model.OnFilterProductsByNameListener() {
+    public void getProducts(Context context, Product product) {
+        listProductsByNameModel.getProductsWS(context, new ListProductsByNameContract.Model.OnFilterProductsByNameListener() {
             @Override
             public void onResolve(ArrayList<Product> products) {
                 view.success(products);

@@ -1,5 +1,7 @@
 package com.svalero.vintedandroid.add_product.presenter;
 
+import android.content.Context;
+
 import com.svalero.vintedandroid.add_product.contract.AddProductContract;
 import com.svalero.vintedandroid.add_product.model.AddProductModel;
 import com.svalero.vintedandroid.add_product.view.AddProductActivity;
@@ -16,8 +18,8 @@ public class AddProductPresenter implements AddProductContract.Presenter {
     }
 
     @Override
-    public void addProduct(Product product) {
-        addProductModel.addProductWS(new AddProductContract.Model.OnAddProductListener() {
+    public void addProduct(Context context, Product product) {
+        addProductModel.addProductWS(context, new AddProductContract.Model.OnAddProductListener() {
             @Override
             public void onFinished(String message) {
                 view.success(message);

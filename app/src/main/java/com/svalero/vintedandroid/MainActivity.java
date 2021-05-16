@@ -25,4 +25,10 @@ public class MainActivity extends AppCompatActivity {
                 , 4000
         );
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        overridePendingTransition(0, R.anim.slide_down);
+    }
 }

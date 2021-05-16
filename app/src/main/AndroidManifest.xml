@@ -18,21 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".list_products.view.ListProductsActivity">
-        </activity>
-        <activity android:name=".list_users.view.ListUsersActivity">
-        </activity>
-        <activity android:name=".list_products_by_category.view.ListProductsByCategoryActivity">
-        </activity>
-        <activity android:name=".list_products_by_name.view.ListProductsByNameActivity">
-        </activity>
         <activity android:name=".showProduct.view.ShowProductActivity">
         </activity>
         <activity android:name=".login_user.view.LoginUserActivity">
         </activity>
-        <activity android:name=".list_products_by_user.view.ListProductsByUserActivity">
-        </activity>
         <activity android:name=".UserMenuActivity">
+
         </activity>
         <activity android:name=".add_product.view.AddProductActivity">
         </activity>

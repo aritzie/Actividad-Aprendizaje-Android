@@ -1,5 +1,7 @@
 package com.svalero.vintedandroid.list_products.presenter;
 
+import android.content.Context;
+
 import com.svalero.vintedandroid.beans.Product;
 import com.svalero.vintedandroid.list_products.contract.ListProductsContract;
 import com.svalero.vintedandroid.list_products.model.ListProductsModel;
@@ -17,8 +19,8 @@ public class ListProductsPresenter implements ListProductsContract.Presenter {
     }
 
     @Override
-    public void getProducts() {
-        listProductsModel.getProductsWS(new ListProductsContract.Model.OnListProductsListener() {
+    public void getProducts(Context context) {
+        listProductsModel.getProductsWS(context, new ListProductsContract.Model.OnListProductsListener() {
             @Override
             public void onResolve(ArrayList<Product> products) {
                 view.success(products);

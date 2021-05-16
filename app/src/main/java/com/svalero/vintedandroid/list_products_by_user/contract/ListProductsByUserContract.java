@@ -1,5 +1,7 @@
 package com.svalero.vintedandroid.list_products_by_user.contract;
 
+import android.content.Context;
+
 import com.svalero.vintedandroid.beans.Product;
 import com.svalero.vintedandroid.beans.User;
 
@@ -11,10 +13,10 @@ public interface ListProductsByUserContract {
         void error(String message);
     }
     interface Presenter {
-        void getProducts(User user);
+        void getProducts(Context context, User user);
     }
     interface Model {
-        void  getProductsWS(OnListProductsByUserListener onListProductsByUserListener, User user);
+        void  getProductsWS(Context context, OnListProductsByUserListener onListProductsByUserListener, User user);
 
         interface OnListProductsByUserListener {
             void onResolve(ArrayList<Product> products);

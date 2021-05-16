@@ -1,5 +1,7 @@
 package com.svalero.vintedandroid.showProduct.contract;
 
+import android.content.Context;
+
 import com.svalero.vintedandroid.beans.Product;
 
 public interface ShowProductContract {
@@ -8,10 +10,10 @@ public interface ShowProductContract {
         void error(String message);
     }
     interface Presenter{
-        void getProduct(Product product);
+        void getProduct(Context context, Product product);
     }
     interface Model{
-        void getProductWS(OnShowProductListener onShowProductListener, Product product);
+        void getProductWS(Context context, OnShowProductListener onShowProductListener, Product product);
 
         interface OnShowProductListener {
             void onResolve(Product product);
