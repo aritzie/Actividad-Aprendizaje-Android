@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Name"
+                android:text="@string/row_product_name"
                 android:textSize="25dp"
                 android:textStyle="bold"/>
 
@@ -52,7 +52,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Price"
+                    android:text="@string/row_product_price"
                     android:textSize="20dp"/>
 
                 <TextView
@@ -60,7 +60,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Rate"
+                    android:text="@string/row_product_rate"
                     android:textSize="20dp"/>
 
 

@@ -23,14 +23,14 @@
             android:id="@+id/fragment_list_users_tv_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Error al obtener los datos"/>
+            android:text="@string/error_errorMessage"/>
 
         <Button
             android:id="@+id/fragment_list_users_button_retry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Reintentar"/>
+            android:text="@string/error_retry"/>
     </LinearLayout>
 
     <ProgressBar

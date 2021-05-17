@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -38,7 +36,7 @@
                     android:id="@+id/txtUserName"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Name"
+                    android:text="@string/row_user_name"
                     android:textStyle="bold"
                     android:textSize="20dp">
                 </TextView>
@@ -47,7 +45,7 @@
                     android:id="@+id/txtLastName"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Last Name"
+                    android:text="@string/row_user_lastName"
                     android:textStyle="bold"
                     android:textSize="20dp"
                     android:layout_marginLeft="5dp">
@@ -64,7 +62,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Total de ventas:"
+                    android:text="@string/row_user_textSales"
                     android:textSize="15dp"
                     android:layout_marginLeft="5dp">
                 </TextView>
@@ -73,7 +71,7 @@
                     android:id="@+id/txtSales"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Sales"
+                    android:text="@string/row_user_sales"
                     android:textSize="15dp">
                 </TextView>
 

@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
-                android:hint="Buscar por nombre"
+                android:hint="@string/fragment_search_serachByName"
                 android:inputType="text">
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -47,17 +47,17 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hombre" />
+                android:text="@string/fragmente_search_men" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mujer" />
+                android:text="@string/fragment_search_women" />
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Junior" />
+                android:text="@string/fragmaent_search_junior" />
         </com.google.android.material.tabs.TabLayout>
 
         <FrameLayout

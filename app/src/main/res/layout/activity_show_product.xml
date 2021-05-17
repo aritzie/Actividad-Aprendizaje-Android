@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:text="Name"
+            android:text="@string/activity_showProduct_name"
             android:textSize="30dp"
             android:textStyle="bold"
             android:layout_marginTop="25dp"
@@ -37,7 +37,7 @@
             android:id="@+id/txtDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Description"
+            android:text="@string/activity_showProduct_description"
             android:textSize="10dp"
             android:padding="15dp"
             android:layout_gravity="left"/>
@@ -46,7 +46,7 @@
             android:transitionName="@string/product_price_transition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Price"
+            android:text="@string/activity_showProduct_price"
             android:layout_gravity="left"
             android:textSize="30dp"
             android:padding="15dp"/>
@@ -66,14 +66,14 @@
             android:id="@+id/activity_show_product_tv_error"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Error al obtener los datos"/>
+            android:text="@string/error_errorMessage"/>
 
         <Button
             android:id="@+id/activity_show_product_button_retry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Reintentar"/>
+            android:text="@string/error_retry"/>
     </LinearLayout>
 
         <ProgressBar

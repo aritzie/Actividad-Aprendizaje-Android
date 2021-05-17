@@ -25,13 +25,13 @@
                 android:id="@+id/init_tab_item_top_products"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Top Productos" />
+                android:text="@string/fragment_init_topProducts" />
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/init_tab_item_top_users"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Top Usuarios" />
+                android:text="@string/fragmente_init_topUsers" />
 
         </com.google.android.material.tabs.TabLayout>
 
